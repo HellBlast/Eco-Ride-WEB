@@ -10,9 +10,9 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Burger".toUpperCase(),
+            "Eco Ride".toUpperCase(),
             style: Theme.of(context).textTheme.headline1.copyWith(
-                  color: kTextcolor,
+                  color: Colors.indigo,
                   fontWeight: FontWeight.bold,
                 ),
           ),
@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
             "Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod tempor \nincididunt ut labor",
             style: TextStyle(
               fontSize: 21,
-              color: kTextcolor.withOpacity(0.34),
+              color: kTextcolor.withOpacity(1),
             ),
           ),
           FittedBox(
@@ -32,34 +32,37 @@ class Body extends StatelessWidget {
                 color: Color(0xFF372930),
                 borderRadius: BorderRadius.circular(34),
               ),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Container(
+              child: TextButton(
+                onPressed: () {},
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      height: 38,
+                      width: 38,
                       decoration: BoxDecoration(
-                        color: Color(0xFF372930),
+                        color: kPrimaryColor,
                         shape: BoxShape.circle,
                       ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFF372930),
+                          shape: BoxShape.circle,
+                        ),
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 15),
-                  Text(
-                    "Get Started".toUpperCase(),
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                    SizedBox(width: 15),
+                    Text(
+                      "Empezar".toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 19,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 15),
-                ],
+                    SizedBox(width: 15),
+                  ],
+                ),
               ),
             ),
           )

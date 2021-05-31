@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_web/Components/default_button.dart';
+import 'package:food_web/Screens/Sign/login.dart';
 
 import 'menu_item.dart';
 
@@ -24,37 +25,48 @@ class CustomAppBar extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             "assets/images/logo.png",
-            height: 25,
+            height: 40,
+            fit: BoxFit.fill,
             alignment: Alignment.topCenter,
           ),
           SizedBox(width: 5),
           Text(
-            "Foodi".toUpperCase(),
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            "ECO RIDE".toUpperCase(),
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.indigo,
+            ),
           ),
           Spacer(),
           MenuItem(
-            title: "Home",
+            title: "Inicio",
             press: () {},
           ),
           MenuItem(
-            title: "about",
+            title: "Productos",
             press: () {},
           ),
           MenuItem(
-            title: "Pricing",
+            title: "Informacion",
             press: () {},
           ),
           MenuItem(
-            title: "Contact",
+            title: "Contacto",
             press: () {},
           ),
           MenuItem(
-            title: "Login",
-            press: () {},
+            title: "inicio de sesion",
+            press: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => SignUpScreen(),
+                  ),
+                  (route) => false);
+            },
           ),
           DefaultButton(
-            text: "Get Started",
+            text: "Empezar",
             press: () {},
           ),
         ],
