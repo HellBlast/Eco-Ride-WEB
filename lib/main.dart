@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_web/Screens/Home/home_screen.dart';
 import 'package:food_web/constant.dart';
+import 'package:food_web/routes/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: getAppRoutes(),
     );
   }
 }
