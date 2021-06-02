@@ -41,7 +41,9 @@ class CustomAppBar extends StatelessWidget {
           Spacer(),
           MenuItem(
             title: "Inicio",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, 'home');
+            },
           ),
           MenuItem(
             title: "Productos",

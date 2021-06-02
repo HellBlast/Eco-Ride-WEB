@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:food_web/Screens/Home/Components/app_bar.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: Center(
-        child: SizedBox(
-          width: 400,
-          child: Card(
-            child: SignUpForm(),
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          CustomAppBar(),
+          Expanded(
+            child: Center(
+              child: SizedBox(
+                child: Card(
+                  child: SignUpForm(),
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class WelcomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Welcome!', style: Theme.of(context).textTheme.headline2),
+        ],
       ),
     );
   }
@@ -59,7 +55,7 @@ class _SignUpFormState extends State<SignUpForm> {
     });
   }
 
-  void _showWelcomeScreen() {
+  void _showHomeScreen() {
     Navigator.of(context).pushNamed('home');
   }
 
@@ -70,80 +66,89 @@ class _SignUpFormState extends State<SignUpForm> {
     return Form(
       onChanged: _updateFormProgress,
       child: Stack(
+        alignment: Alignment.center,
         children: [
           Container(
             height: size.height,
             width: size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/bg.png"),
-                fit: BoxFit.fill,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Spacer(),
-                Spacer(
-                  flex: 2,
-                ),
-              ],
+                  image: AssetImage("assets/images/bg.png"),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center),
             ),
           ),
-          Registro(context),
+          Container(
+              constraints: BoxConstraints(maxWidth: 600),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white.withAlpha(100)),
+              child: Registro(context)),
+          Positioned(
+              top: 0,
+              child: Container(
+                  height: 10,
+                  width: size.width,
+                  child: AnimatedProgressIndicator(value: _formProgress))),
         ],
       ),
     );
   }
 
-  Column Registro(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        AnimatedProgressIndicator(value: _formProgress),
-        Text('Registro', style: Theme.of(context).textTheme.headline4),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: TextFormField(
-            controller: _emailNameTextController,
-            decoration: InputDecoration(hintText: 'Correo'),
+  Widget Registro(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Registro', style: Theme.of(context).textTheme.headline4),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: _emailNameTextController,
+              decoration: InputDecoration(hintText: 'Correo'),
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: TextFormField(
-            controller: _passnewoneNameTextController,
-            decoration: InputDecoration(hintText: 'Contraseña'),
-            obscureText: true,
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: _passnewoneNameTextController,
+              decoration: InputDecoration(hintText: 'Contraseña'),
+              obscureText: true,
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: TextFormField(
-            controller: _passnewtwoTextController,
-            decoration: InputDecoration(hintText: 'Contraseña'),
-            obscureText: true,
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: _passnewtwoTextController,
+              decoration: InputDecoration(hintText: 'Contraseña'),
+              obscureText: true,
+            ),
           ),
-        ),
-        TextButton(
-          style: ButtonStyle(
-            foregroundColor:
-                MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-              return states.contains(MaterialState.disabled)
-                  ? null
-                  : Colors.white;
-            }),
-            backgroundColor:
-                MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-              return states.contains(MaterialState.disabled)
-                  ? null
-                  : Colors.blue;
-            }),
+          Container(
+            height: 50,
+            width: 200,
+            child: TextButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.resolveWith(
+                    (Set<MaterialState> states) {
+                  return states.contains(MaterialState.disabled)
+                      ? null
+                      : Colors.white;
+                }),
+                backgroundColor: MaterialStateProperty.resolveWith(
+                    (Set<MaterialState> states) {
+                  return states.contains(MaterialState.disabled)
+                      ? null
+                      : Colors.blue;
+                }),
+              ),
+              onPressed: _formProgress == 1 ? _showHomeScreen : null,
+              child: Text('Registrarse'),
+            ),
           ),
-          onPressed: _formProgress == 1 ? _showWelcomeScreen : null,
-          child: Text('Sign up'),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
