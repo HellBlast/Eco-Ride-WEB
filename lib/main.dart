@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_web/Screens/Home/home_screen.dart';
-import 'package:food_web/constant.dart';
-import 'package:food_web/routes/routes.dart';
+import 'constant.dart';
+import 'routes/routes.dart';
 
 void main() {
   runApp(MyApp());
