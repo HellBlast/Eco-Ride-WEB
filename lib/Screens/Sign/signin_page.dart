@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_web/Screens/Home/Components/app_bar.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +32,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   final _emailNameTextController = TextEditingController();
   final _passnewoneNameTextController = TextEditingController();
-  final _passnewtwoTextController = TextEditingController();
+  //final _passnewtwoTextController = TextEditingController();
 
   double _formProgress = 0;
 
@@ -41,7 +41,7 @@ class _SignUpFormState extends State<SignUpForm> {
     final controllers = [
       _emailNameTextController,
       _passnewoneNameTextController,
-      _passnewtwoTextController
+      //_passnewtwoTextController
     ];
 
     for (final controller in controllers) {
@@ -101,7 +101,7 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Registro', style: Theme.of(context).textTheme.headline4),
+          Text('Iniciar sesión', style: Theme.of(context).textTheme.headline4),
           Padding(
             padding: EdgeInsets.all(8.0),
             child: TextFormField(
@@ -113,14 +113,6 @@ class _SignUpFormState extends State<SignUpForm> {
             padding: EdgeInsets.all(8.0),
             child: TextFormField(
               controller: _passnewoneNameTextController,
-              decoration: InputDecoration(hintText: 'Contraseña'),
-              obscureText: true,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFormField(
-              controller: _passnewtwoTextController,
               decoration: InputDecoration(hintText: 'Contraseña'),
               obscureText: true,
             ),
@@ -144,7 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 }),
               ),
               onPressed: _formProgress == 1 ? _showHomeScreen : null,
-              child: Text('Registrarse'),
+              child: Text('Iniciar'),
             ),
           ),
           Container(
@@ -152,9 +144,9 @@ class _SignUpFormState extends State<SignUpForm> {
             width: 200,
             child: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'signin');
+                Navigator.pushNamed(context, 'login');
               },
-              child: Text('¿Ya tene una cuenta?'),
+              child: Text('Registrarse'),
             ),
           ),
         ],

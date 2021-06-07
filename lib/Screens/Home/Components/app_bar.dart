@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_web/Components/default_button.dart';
+import 'package:food_web/Screens/Home/start_page.dart';
 import 'package:food_web/Screens/Sign/login.dart';
+import 'package:food_web/Screens/Sign/signin_page.dart';
 
 import 'menu_item.dart';
 
@@ -50,10 +52,6 @@ class CustomAppBar extends StatelessWidget {
             press: () {},
           ),
           MenuItem(
-            title: "Informacion",
-            press: () {},
-          ),
-          MenuItem(
             title: "Contacto",
             press: () {},
           ),
@@ -62,14 +60,20 @@ class CustomAppBar extends StatelessWidget {
             press: () {
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
-                    builder: (context) => SignUpScreen(),
+                    builder: (context) => SignInScreen(),
                   ),
                   (route) => false);
             },
           ),
           DefaultButton(
             text: "Empezar",
-            press: () {},
+            press: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => StartPage(),
+                  ),
+                  (route) => false);
+            },
           ),
         ],
       ),

@@ -33,7 +33,9 @@ class Body extends StatelessWidget {
                 borderRadius: BorderRadius.circular(34),
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'start');
+                },
                 child: Row(
                   children: <Widget>[
                     Container(
