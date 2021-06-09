@@ -135,7 +135,9 @@ class _SignUpFormState extends State<SignUpForm> {
                       : Colors.blue;
                 }),
               ),
-              onPressed: _formProgress == 1 ? _showHomeScreen : null,
+              onPressed: () {
+                Navigator.pushNamed(context, 'compra');
+              },
               child: Text('Iniciar'),
             ),
           ),
