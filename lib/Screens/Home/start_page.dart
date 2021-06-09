@@ -48,6 +48,13 @@ class StartPage extends StatelessWidget {
                               color: kTextcolor.withOpacity(1),
                             ),
                           ),
+                          Text(
+                            'Aute duis est dolore irure aliqua culpa eu. Ad duis proident pariatur mollit quis sunt nostrud consectetur ex anim quis elit ad dolore. Reprehenderit qui mollit dolore adipisicing sint officia exercitation deserunt consectetur esse exercitation. Irure nisi nostrud ipsum laboris labore amet ea sunt irure. Sunt et amet cillum dolor eiusmod nostrud dolore incididunt culpa nulla ipsum culpa ea.',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: kTextcolor.withOpacity(1),
+                            ),
+                          ),
                         ],
                       ),
                     )

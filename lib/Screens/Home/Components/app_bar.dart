@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_web/Components/default_button.dart';
+import 'package:food_web/Screens/Home/home_screen.dart';
 import 'package:food_web/Screens/Home/start_page.dart';
 import 'package:food_web/Screens/Sign/login.dart';
 import 'package:food_web/Screens/Sign/signin_page.dart';
@@ -70,7 +71,7 @@ class CustomAppBar extends StatelessWidget {
             press: () {
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
-                    builder: (context) => StartPage(),
+                    builder: (context) => HomeScreen(),
                   ),
                   (route) => false);
             },

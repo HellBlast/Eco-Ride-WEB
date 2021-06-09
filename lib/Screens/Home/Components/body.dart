@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'start');
+                  Navigator.pushNamed(context, 'login');
                 },
                 child: Row(
                   children: <Widget>[
