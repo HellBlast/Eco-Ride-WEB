@@ -4,6 +4,7 @@ import 'package:food_web/Screens/Home/home_screen.dart';
 import 'package:food_web/Screens/Home/start_page.dart';
 import 'package:food_web/Screens/Sign/login.dart';
 import 'package:food_web/Screens/Sign/signin_page.dart';
+import 'package:food_web/ecommerce/widget_tree.dart';
 
 import 'menu_item.dart';
 
@@ -50,7 +51,13 @@ class CustomAppBar extends StatelessWidget {
           ),
           MenuItem(
             title: "Productos",
-            press: () {},
+            press: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => WidgetTree(),
+                  ),
+                  (route) => false);
+            },
           ),
           MenuItem(
             title: "Contacto",
