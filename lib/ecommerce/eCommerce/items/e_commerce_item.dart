@@ -59,7 +59,7 @@ class ECommerceItem extends StatelessWidget {
             ),
           ),
           Text(
-            "\$ ${item.amount}",
+            "Cantidad: ${item.amount}",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           SizedBox(
